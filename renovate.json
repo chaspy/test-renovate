@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "config:base",
+    "github>suzuki-shunsuke/aqua-renovate-config"
+  ],
+  "reviewers": ["team:sre"],
+  "schedule": ["after 2am and before 6am on Mon and Tues and Wed and Thurs"],
+  "packageRules": [
+    {
+      "automerge": true,
+      "reviewers": [],
+      "schedule": [],
+      "matchManagers": ["regex"],
+      "matchUpdateTypes": ["minor", "patch", "pin"]
+    },
+    {
+      "postUpdateOptions": ["gomodTidy"],
+      "automerge": true,
+      "reviewers": [],
+      "matchManagers": ["gomod"],
+      "matchUpdateTypes": ["minor", "patch", "pin"]
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^ci/.*\\.sh"],
+      "matchStrings": ["AQUA_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "suzuki-shunsuke/aqua",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
