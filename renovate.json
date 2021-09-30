@@ -10,6 +10,13 @@
       "automerge": true,
       "reviewers": [],
       "schedule": [],
+      "matchPaths": [".github/workflows/renovate-config-validator.yaml"],
+      "matchUpdateTypes": ["minor", "patch", "pin"]
+    },
+    {
+      "automerge": true,
+      "reviewers": [],
+      "schedule": [],
       "matchManagers": ["regex"],
       "matchUpdateTypes": ["minor", "patch", "pin"]
     },
